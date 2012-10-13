@@ -13,3 +13,9 @@ Hello, [Jekyll](https://github.com/mojombo/jekyll)!
 
 <script src="https://gist.github.com/3847880.js?file=countdown.rb"></script>
 
+### Jekyll相关链接
+
+* [用Github Pages建独立博客](http://beiyuu.com/github-pages/)
+* Github Pages的[官方说明文件](http://pages.github.com/)
+* [像黑客一样写博客——Jekyll入门](http://www.soimort.org/tech-blog/2011/11/19/introduction-to-jekyll_zh.html)
+    这篇文章是中译版，其后的参考链接提供了很多相关背景知识和相关技术
