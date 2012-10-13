@@ -9,24 +9,26 @@ QT字符串转换为整型数，当该16进制字符串表示负数，或者最�
 下面是我写的一段测试程序，同时也给出了避开错误的一种方法。
 
 <pre class="prettyprint lang-cpp">
-        bool ok = false;
-        //非负数转换没有问题
-        int iValue = tr("FFFC7B5").toInt(&ok, 16);
-        logger()->debug(tr("FFFC7B5 toInt [%1] value: %2")
-	       .arg(ok?"OK":"NK").arg(iValue));
-	    //负数出错，结果为0
-        iValue = tr("FFFFC7B5").toInt(&ok, 16);
-        logger()->debug(tr("FFFFC7B5 toInt [%1] value: %2")
-                .arg(ok?"OK":"NK").arg(iValue));
+ 
+ bool ok = false;
+ //非负数转换没有问题
+ int iValue = tr("FFFC7B5").toInt(&ok, 16);
+ logger()->debug(tr("FFFC7B5 toInt [%1] value: %2")
+       .arg(ok?"OK":"NK").arg(iValue));
+    //负数出错，结果为0
+ iValue = tr("FFFFC7B5").toInt(&ok, 16);
+ logger()->debug(tr("FFFFC7B5 toInt [%1] value: %2")
+         .arg(ok?"OK":"NK").arg(iValue));
 
-        //以下为正确的输出
-        QString strHex = tr("FFFFC7B5");
-        iValue = strHex.toUInt(&ok, 16);
-        logger()->debug(tr("%1 toInt [%2] value: %3")
-                .arg(strHex).arg(ok?"OK":"NK").arg(iValue));
-        long lValue = strHex.toULong(&ok, 16);
-        logger()->debug(tr("%1 toInt [%2] value: %3")
-                .arg(strHex).arg(ok?"OK":"NK").arg(lValue));
+ //以下为正确的输出
+ QString strHex = tr("FFFFC7B5");
+ iValue = strHex.toUInt(&ok, 16);
+ logger()->debug(tr("%1 toInt [%2] value: %3")
+         .arg(strHex).arg(ok?"OK":"NK").arg(iValue));
+ long lValue = strHex.toULong(&ok, 16);
+ logger()->debug(tr("%1 toInt [%2] value: %3")
+         .arg(strHex).arg(ok?"OK":"NK").arg(lValue));
+
 </pre>
 
 这里使用了[log4qt](http://log4qt.sourceforge.net/)库来输出日志。
