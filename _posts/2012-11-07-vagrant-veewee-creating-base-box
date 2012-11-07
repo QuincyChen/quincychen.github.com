@@ -15,6 +15,9 @@ title: "使用Vagrant veewee建立base box"
 * [Vagrant Tricks and Troubleshooting](http://devops.me/2011/10/10/vagrant-tricks-and-troubleshooting/)
 * [Windows7系统中使用vagrant构建Linux虚拟化开发环境](http://www.360ito.com/article/199.html)
 * [用veewee创建vagrant的虚拟机](http://www.continuousdelivery.info/index.php/2011/11/04/veewee-vargrant/)
+* [Customising a Vagrant box with Veewee](http://chrisyallop.com/2012/04/customising-a-vagrant-box-with-veewee/)
+
+问题:
 
 * 首先我碰到的第一个问题是，如何将现有的虚拟机文件直接包装成box，我想这是最起码的。vagrant package命令好像是，但我没有成功，有知道的请告诉我下。
 
@@ -25,4 +28,18 @@ title: "使用Vagrant veewee建立base box"
    sudo ./postintall.sh
    重复后期安装的过程，当然，你可以注释掉完成的部分，只执行需要的部分
 
-   
+建立basebox基本步骤:
+
+<pre class="prettyprint lang-cpp">
+
+	vagrant basebox templates#列举可以获取的模板，若没有，你可以选择一个最接近的来进行编辑
+    mkdir envir_dir; cd envir_dir;#建立环境目录并进入
+    vagrant basebox define 'ubuntu1204' 'ubuntu-12.04.1-server-i386'#创建基本的环境配置定义
+    find . #可以看到得到了definition目录和其下的三个文件,修改文件以便适合自己的要求
+    #可以修改ISO文件为本地，前提是你已经下载了。要把下载的ISO文件放到与definition同级别的iso目录下
+    vagrant basebox build ubuntu1204#开始建立虚拟机( long time .......zZZ^^^^)
+    vagrant basebox export 'ubuntu1204'#导出虚拟机
+
+    #使用vagrant 开始下面的其他工作
+    vagrant box add 'ubuntu1204' ubuntu1204.box 
+</pre>   
