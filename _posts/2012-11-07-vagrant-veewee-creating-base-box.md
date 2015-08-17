@@ -4,6 +4,7 @@ title: "使用Vagrant veewee建立base box"
 ---
 
 [vagrant](http://vagrantup.com)是自动建立虚拟环境的利器，他基本的工作原理包括：
+
 * 基于VirtualBox，使用其提供的API，将虚拟机的安装和基础配置自动化，并用可读脚本的形式保存下来；
 * 基于Puppet或者chef，将软件安装和配置自动化，并且可记录。
 
@@ -12,6 +13,7 @@ title: "使用Vagrant veewee建立base box"
 [veewee](https://github.com/jedi4ever/veewee/blob/master/doc/vagrant.md)是vagrant的插件，提供了常用的一系列basebox的配置模板，可以基于这些模板快速地建立basebox，从而简化工作。
 
 以下是一些参考链接：
+
 * [Vagrant Tricks and Troubleshooting](http://devops.me/2011/10/10/vagrant-tricks-and-troubleshooting/)
 * [Windows7系统中使用vagrant构建Linux虚拟化开发环境](http://www.360ito.com/article/199.html)
 * [用veewee创建vagrant的虚拟机](http://www.continuousdelivery.info/index.php/2011/11/04/veewee-vargrant/)
